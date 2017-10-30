@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>      
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <title>admin page</title>
+        <link rel="stylesheet"  type="text/css" href="/Users/Ruslan/Documents/WebProjects/CsAdmin/css/style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    </head>
+    <body>
+        <div class="ui container">
+            <div class="ui top attached tabular menu">
+        <a class="item active" data-tab="first">Текущий online</a>
+        <a class="item" data-tab="second">Последние трейды</a>
+        <a class="item" data-tab="third">Комиссия</a>
+        <a class="item" data-tab="fourth">Игры</a>
+        <a class="item" data-tab="fifth">Support</a>
+            </div>
+            <div class="ui bottom attached tab segment active" data-tab="first">
+            <table class="ui celled table" id="game_table">
+                    <thead>
+                        <tr>
+                            <th>Пользователь</th>
+                            <th>Игры коинфлип</th>
+                            <th>Игры джекпот</th>
+                            <th>Трейд ссылка</th>
+                            <th>Стоимость инвентаря</th>
+                        </tr>
+                        <tr>
+                            <td>sample</td>
+                            <td>sample</td>
+                            <td>sample</td>
+                            <td>sample</td>
+                            <td>sample</td>
+                        </tr>
+                    </thead>
+                </table>
+        </div>
+            <div class="ui bottom attached tab segment" data-tab="second">
+            Content
+            </div>
+            <div class="ui bottom attached tab segment" data-tab="third">
+            Content
+            </div> 
+            <div class="ui bottom attached tab segment" data-tab="fourth">
+            <div class="ui search" id="serch_by_name">
+                <div class="ui icon input">
+                    <input class="prompt" type="text" placeholder="Поиск игры по номеру...">
+                    <i class="search icon"></i>
+                </div>
+                <div class="results"></div>
+            </div>
+                <table class="ui selectable celled table" id="game_table">
+                    <thead>
+                        <tr>
+                            <th>Номер игры</th>
+                            <th>Статус трейда</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>sample</td>
+                            <td>sample</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+            <div class="ui bottom attached tab segment" data-tab="fifth">
+            <table class="ui selectable celled table" id="ticket_table">
+                    <thead>
+                        <tr>
+                            <th>Тикет</th>
+                            <th>Превью</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>sample</td>
+                            <td>sample</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script>$('.menu .item').tab();</script>
+    </body>
+</html>
