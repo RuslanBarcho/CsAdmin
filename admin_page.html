@@ -7,19 +7,22 @@
         <link rel="stylesheet"  type="text/css" href="/Users/Ruslan/Documents/WebProjects/CsAdmin/css/style.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
     </head>
     <body>
-        <div class="ui container">
-            <div class="ui top attached tabular menu">
-        <a class="item active" data-tab="first">Текущий online</a>
-        <a class="item" data-tab="second">Последние трейды</a>
-        <a class="item" data-tab="third">Комиссия</a>
-        <a class="item" data-tab="fourth">Игры</a>
-        <a class="item" data-tab="fifth">Support</a>
+        <div class="ui container mobile hidden">
+            <div class="ui stackable pointing menu">
+                <a class="item active" data-tab="first">Текущий онлайн</a>
+                <a class="item" data-tab="second">Последние трейды</a>
+                <a class="item" data-tab="third">Комиссия</a>
+                <a class="item" data-tab="fourth">Игры</a>
+                <a class="item" data-tab="fifth">Поддержка</a>
+                <a class="item" data-tab="six">Редактор цен</a>
             </div>
-            <div class="ui bottom attached tab segment active" data-tab="first">
-            <table class="ui celled table" id="game_table">
+            <div class="ui tab segment active" data-tab="first">
+            <table class="ui celled table" id="online_table">
                     <thead>
                         <tr>
                             <th>Пользователь</th>
@@ -27,7 +30,10 @@
                             <th>Игры джекпот</th>
                             <th>Трейд ссылка</th>
                             <th>Стоимость инвентаря</th>
+                            
                         </tr>
+                    </thead>
+                    <tbody>
                         <tr>
                             <td>sample</td>
                             <td>sample</td>
@@ -35,23 +41,16 @@
                             <td>sample</td>
                             <td>sample</td>
                         </tr>
-                    </thead>
+                    </tbody>
                 </table>
         </div>
-            <div class="ui bottom attached tab segment" data-tab="second">
+            <div class="ui tab segment" data-tab="second">
             Content
             </div>
-            <div class="ui bottom attached tab segment" data-tab="third">
+            <div class="ui tab segment" data-tab="third">
             Content
             </div> 
-            <div class="ui bottom attached tab segment" data-tab="fourth">
-            <div class="ui search" id="serch_by_name">
-                <div class="ui icon input">
-                    <input class="prompt" type="text" placeholder="Поиск игры по номеру...">
-                    <i class="search icon"></i>
-                </div>
-                <div class="results"></div>
-            </div>
+            <div class="ui tab segment" data-tab="fourth">
                 <table class="ui selectable celled table" id="game_table">
                     <thead>
                         <tr>
@@ -67,23 +66,67 @@
                     </tbody>
                 </table>
             </div> 
-            <div class="ui bottom attached tab segment" data-tab="fifth">
-            <table class="ui selectable celled table" id="ticket_table">
+            <div class="ui tab segment" data-tab="fifth">
+            <table class="ui celled table" id="ticket_table">
                     <thead>
                         <tr>
-                            <th>Тикет</th>
-                            <th>Превью</th>
+                            <th><div align="center" class="container">Тикет</div></th>
+                            <th><div align="center" class="container">Тема</div></th>
+                            <th><div align="center" class="container">Действие</div></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>sample</td>
-                            <td>sample</td>
+                            <td><div align="center" class="container">Sample</div></td>
+                            <td><div align="center" class="container">Sample</div></td>
+                            <td><div align="center" class="container">
+                                <button class="ui positive basic button" onclick="$('#chat').modal('show');">Принять</button>
+                            <button class="ui negative basic button">Отклонить</button>
+                                </div>
+                                </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            <div class="ui tab segment" data-tab="six">
+            Content
+            </div> 
+        </div>
+        <div class="ui modal" id="chat">
+            <i class="close icon"></i>
+                <div class="header">
+                Чат
+                </div>
+                <div class="ui container">
+                    <div align="center" class="ui minimal comments">
+                        <div align="left" class="comment">
+                            <div class="content">
+                                <a class="author">Пользователь</a>
+                                <div class="text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                </div>
+                            </div>
+                        </div>
+                        <div align="right" class="comment">
+                            <div class="content">
+                                <a class="author">Вы</a>
+                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui fluid icon input">
+                        <input type="text" placeholder="Введте сообщение">
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="ui primary button"><i class="icon edit"></i>Отправить</div>
+                </div>
         </div>
         <script>$('.menu .item').tab();</script>
+        
+        <script>$(document).ready(function() {
+                $('#game_table').DataTable();
+                $('#online_table').DataTable();
+                } );</script>
     </body>
 </html>
