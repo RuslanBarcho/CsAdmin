@@ -12,15 +12,26 @@
         <script src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
     </head>
     <body>
-        <div class="ui container mobile hidden">
-            <div class="ui stackable pointing menu">
-                <a class="item active" data-tab="first">Текущий онлайн</a>
-                <a class="item" data-tab="second">Последние трейды</a>
-                <a class="item" data-tab="third">Комиссия</a>
-                <a class="item" data-tab="fourth">Игры</a>
-                <a class="item" data-tab="fifth">Поддержка</a>
-                <a class="item" data-tab="six">Редактор цен</a>
+            <div class="ui sidebar vertical left inverted menu" id="testSidebar">
+                <a class="item active" data-tab="first" onclick="changeTextAndCloseSidebar('Текущий онлайн')">Текущий онлайн</a>
+                <a class="item" data-tab="second" onclick="changeTextAndCloseSidebar('Последние трейды')">Последние трейды</a>
+                <a class="item" data-tab="third" onclick="changeTextAndCloseSidebar('Комиссия');">Комиссия</a>
+                <a class="item" data-tab="fourth" onclick="changeTextAndCloseSidebar('Игры');">Игры</a>
+                <a class="item" data-tab="fifth" onclick="changeTextAndCloseSidebar('Поддержка');">Поддержка</a>
+                <a class="item" data-tab="six" onclick="changeTextAndCloseSidebar('Редактор цен');">Редактор цен</a>
             </div>
+            <div class="ui container">
+
+                <div class="ui basic icon top fixed menu">
+            <a id="toogle" class="item" onclick="$('#testSidebar').sidebar('toogle');">
+                <i class="sidebar icon"></i>
+                Menu
+            </a>
+            <p class="item" id="title">
+                    Текущий онлайн
+                    </p>
+        </div>
+        <div class="ui container" id="content">
             <div class="ui tab segment active" data-tab="first">
             <table class="ui celled table" id="online_table">
                     <thead>
@@ -45,7 +56,20 @@
                 </table>
         </div>
             <div class="ui tab segment" data-tab="second">
-            Content
+            <table class="ui selectable celled table" id="trade_table">
+                    <thead>
+                        <tr>
+                            <th>Номер</th>
+                            <th>Ссылка</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>sample</td>
+                            <td>sample</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="ui tab segment" data-tab="third">
             Content
@@ -91,7 +115,8 @@
             <div class="ui tab segment" data-tab="six">
             Content
             </div> 
-        </div>
+            </div>
+                        </div>
         <div class="ui modal" id="chat">
             <i class="close icon"></i>
                 <div class="header">
@@ -122,11 +147,21 @@
                     <div class="ui primary button"><i class="icon edit"></i>Отправить</div>
                 </div>
         </div>
+        <script type = "text/javascript">
+            function changeTextAndCloseSidebar(value){
+                document.getElementById('title').innerHTML = value;
+                $('#testSidebar').sidebar('hide');
+            }
+        </script>
         <script>$('.menu .item').tab();</script>
-        
+        <script>$('#toogle').click(function(){
+                $('#testSidebar').sidebar('show');
+            });
+        </script>
         <script>$(document).ready(function() {
                 $('#game_table').DataTable();
                 $('#online_table').DataTable();
+                $('#trade_table').DataTable();
                 } );</script>
     </body>
 </html>

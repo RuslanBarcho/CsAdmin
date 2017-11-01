@@ -1,5 +1,16 @@
-.container {
-  padding: 5px !important;
-  padding-top:5px !important;
-  padding-bottom:5px !important;
+
+#content {
+    padding-top: 40px !important;
+}
+#second {
+    padding-top: 30px !important;
+}
+#online-table {
+    padding-top: 10px !important;
+}
+.tab.segment.active {
+    margin:0px !important
+}
+.container{
+    padding: 10px;
 }
